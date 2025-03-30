@@ -62,9 +62,13 @@ def evaluateRisk(acc_n, nsf_count_lst_12_months=3, months_on_book=3):
         return 'Bad'
     
     score = 1
-    score -= attr['cu_nbr_of_plastics'] * 0.01
-    score -= attr['cu_nbr_days_dlq'] * 0.1
+    score -= attr['cu_nbr_of_plastics'].item() * 0.01
+    score -= attr['cu_nbr_days_dlq'].item() * 0.1
     
     
     return 'Good' if score < 0.9 else 'Potential Risk'
 
+def getEvaluationDf():
+    accs = attrs.cu_account_nbr.drop_duplicates()
+    risks = accs.map(evaluateRisk)
+    return pd.DataFrame({'id' : accs, 'risk' : risks})
