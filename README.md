@@ -1,5 +1,6 @@
-[Video link to Presentation video]("www.google.com") !need to change
+[Video link to Presentation video](https://youtu.be/IMDWd-F6qCw) 
 
+Main files to run in order: ```datathon.ipynb``` and then ```Classification Model.ipynb```
 
 Install pandas for data manipulation
 
@@ -25,8 +26,7 @@ Install seaborn for statistical data visualization (optional, useful for plottin
 
 ```pip install seaborn```
 
-
-In the scr folder, please download ```currencyexchange.csv``` and ```rates.csv```. 
+In the scr folder, please download ```currencyexchange.csv```, ```rates.csv```, and ```spending_predictions_months_11_to_14.csv```. 
 
 In the same directory, we moved the folder ```data``` from the unziped folder given.
 
@@ -35,8 +35,10 @@ Diagram of the required files.
 ```C:\ditto>scr
 C:.
 ├───datathon.ipynb
+├───Classification Model.ipynb
 ├───currencyexchange.csv
 ├───rates.csv
+├───spending_predictions_months_11_to_14.csv
 ├───data
 │   ├───account_dim_20250325.csv
 │   ├───fraud_claim_case_20250325.csv
