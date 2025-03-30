@@ -30,10 +30,10 @@ attrs = attrs.merge(df[['cu_account_nbr', 'net_fraud_amt']], on='cu_account_nbr'
 
 attrs = attrs.drop_duplicates()
 
-acc = attrs[attrs.cu_account_nbr == f"FqHTEAbjd4z65FWv"]
+# acc = attrs[attrs.cu_account_nbr == f"FqHTEAbjd4z65FWv"]
 
-threshold = acc.ca_mob.max() - (5 - 1) * 12
-history = acc[acc.ca_mob >= threshold].payment_hist_1_12_mths
+# threshold = acc.ca_mob.max() - (5 - 1) * 12
+# history = acc[acc.ca_mob >= threshold].payment_hist_1_12_mths
 
 # grade = ['A', 'C', 'F', 'G', 'I', 'K', 'L', 'M', 'N', 'P', 'Q', 'R']
 grade = sorted(list(set(attrs.rb_crd_gr_new_crd_gr)))
@@ -42,7 +42,7 @@ grade = sorted(list(set(attrs.rb_crd_gr_new_crd_gr)))
 # risks = accs.map(evaluateRisk)
 # pd.DataFrame({'id' : accs, 'risk' : risks})
 
-def evaluateRiskVectorized(attrs, nsf_count_lst_12_months=6, months_on_book_bad=3, years_on_book_risky=3):
+def evaluateRiskVectorized(nsf_count_lst_12_months=6, months_on_book_bad=3, years_on_book_risky=3):
     latest_attrs = attrs.loc[attrs.groupby('cu_account_nbr')['ca_mob'].idxmax()]
 
     # absolute reject conditions
